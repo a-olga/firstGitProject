@@ -1,16 +1,29 @@
 <?php
 function showMenu ($listMenu){
-   echo '<ul>';
-   foreach($listMenu as $menuElement) 
-   { 
-       echo '<li><a href = "$menuElement[0]">'.$menuElement[1].'</a></li>';
+   $html = '<ul>';
+   foreach ($listMenu as $menuElement) { 
+       $html .= '<li><a href = "'.$menuElement['url'].'">'.$menuElement['title'].'</a></li>';
    }
-   echo '</ul>';
+   $html .= '</ul>';
+   
+   return $html;
 }
 
-$listMenu = [['mainUrl', 'Main'], ['AboutUsUrl', 'About us'],['ProductsUrl', 'Products'], ['ContactsUrl', 'Contacts']]; 
+$listMenu = [[
+    'url' => 'mainUrl', 
+    'title' => 'Main',
+ ], [
+    'url' => 'AboutUsUrl', 
+    'title' => 'About us',
+ ], [
+    'url' => 'ProductsUrl', 
+    'title' => 'Products',
+], [
+    'url' => 'ContactsUrl', 
+    'title' => 'Contacts',
+]]; 
 
-showMenu($listMenu);   
+echo showMenu($listMenu);   
 
-?>
+
 
