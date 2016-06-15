@@ -1,2 +1,2 @@
-# firstGitProjecD
-This is a repository for mu PHP cources homework.
+# firstGitProjec
+This is a repository for my PHP cources homework.
