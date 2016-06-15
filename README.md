@@ -1,8 +1,3 @@
 # firstGitProject
-
-This is my first commit!
-
-Seventh commit by dev!
-
-dev2 added something here.
+This is a repository for mu PHP cources homework.
 
