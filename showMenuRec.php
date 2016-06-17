@@ -2,33 +2,57 @@
 function showMenu ($listMenu){
    $html = '<ul>';
    for ($i = 0; $i < count($listMenu); $i++) { 
-       if (is_array($listMenu[$i][0])) {
-            $html .= showMenu($listMenu[$i]);
+       if ($listMenu[$i]['children']) {
+            $html .='<li><a href = "'.$listMenu[$i]['url'].'">'.$listMenu[$i]['title'].'</a></li>';
+            $html .= showMenu($listMenu[$i]['children']);
        } else {
-            $html .= '<li><a href = "'.$listMenu[$i][0].'">'.$listMenu[$i][1].'</a></li>';
+            $html .= '<li><a href = "'.$listMenu[$i]['url'].'">'.$listMenu[$i]['title'].'</a></li>';
        }
    }
    $html .= '</ul>';
    return $html;
 }
-$listMenu = [[
- 'mainUrl', 
- 'Main',
-], [
- 'AboutUsUrl', 
- 'About us',
-], [
- 'ProductsUrl', 
- 'Products',
-], [[
-    'ProductOneUrl', 
-    'ProductOne', 
-], [
-    'ProductTwoUrl', 
-    'ProductTwo', 
-]], [
- 'ContactsUrl', 
- 'Contacts',
-]]; 
-echo showMenu($listMenu);   
 
+$listMenu = [
+[
+    'url' => '/main', 
+    'title' => 'Main',
+], [
+    'url' => '/news', 
+    'title' => 'News',
+    'children' => [[
+         'url' => '/someNews', 
+        'title' => 'Some news',
+        'children' => [[
+             'url' => '/someNewsOne', 
+            'title' => 'Some news one',
+         ], [
+             'url' => '/someNewsTwo', 
+            'title' => 'Some news two',
+         ]],
+    ], [
+         'url' => '/anotherNews', 
+        'title' => 'Another news',
+    ]],
+], [
+    'url' => '/aboutUs', 
+    'title' => 'About us',
+], [
+    'url' => '/Products', 
+    'title' => 'Products',
+    'children' => [[
+         'url' => '/productOne', 
+        'title' => 'Product one',
+    ], [
+         'url' => '/productTwo', 
+        'title' => 'Product two',
+    ], [
+         'url' => '/productThree', 
+        'title' => 'Product three',
+    ]],
+], [
+    'url' => '/contacts', 
+    'title' => 'Contacts',
+]]; 
+
+echo showMenu($listMenu);  
