@@ -1,7 +1,7 @@
 <?php
-function showMenu ($listMenu){
+function showMenu ($listMenu) {
    $html = '<ul>';
-   for ($i = 0; $i < count($listMenu); $i++) { 
+   for ($i = 0; $i < count($listMenu); $i++) {
        $html .='<li><a href = "'.$listMenu[$i]['url'].'">'.$listMenu[$i]['title'].'</a></li>';
        if ($listMenu[$i]['children']) {
             $html .= showMenu($listMenu[$i]['children']);
