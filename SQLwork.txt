@@ -1,0 +1,23 @@
+1. Show all authors sorted by name:
+
+	SELECT * FROM `authors` 
+	ORDER BY `name` 
+
+
+2. Show all authors whose names start with "a":
+
+	SELECT `name` FROM `authors` 
+	WHERE `name` LIKE 'a%'
+
+
+3. Show all authors who were born after 1970: 
+	SELECT * FROM `authors` 
+	WHERE `birth_date` > '1970%'
+
+
+4. Show number of books published in 2000: 
+
+	SELECT `publication_year`, 
+	COUNT(*) 
+	FROM `books` 
+	WHERE `publication_year` = 2000
