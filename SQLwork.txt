@@ -12,7 +12,7 @@
 
 3. Show all authors who were born after 1970: 
 	SELECT * FROM `authors` 
-	WHERE `birth_date` > '1970%'
+	WHERE `birth_date` > '1970-01-01'
 
 
 4. Show number of books published in 2000: 
