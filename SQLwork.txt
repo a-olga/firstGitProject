@@ -11,8 +11,9 @@
 
 
 3. Show all authors who were born after 1970: 
+
 	SELECT * FROM `authors` 
-	WHERE `birth_date` > '1970-01-01'
+	WHERE `birth_date` > '1970%'
 
 
 4. Show number of books published in 2000: 
@@ -21,3 +22,31 @@
 	COUNT(*) 
 	FROM `books` 
 	WHERE `publication_year` = 2000
+
+5. Show all authors and number of their books:
+
+	SELECT a.id, a.name, 
+	COUNT(b.id) AS count
+	FROM authors a
+	LEFT JOIN books b ON a.id = b.author_id
+	GROUP BY a.id
+
+6. Show authors who have only 1 book:
+
+	SELECT a.name, 
+	COUNT(b.id) AS num
+	FROM authors a
+	JOIN books b ON a.id = b.author_id
+	GROUP By a.id
+	HAVING num = 1
+
+7.Show author who has the biggest amount of books:
+
+	SELECT a.name, COUNT( b.id ) AS num
+	FROM authors a
+	JOIN books b ON a.id = b.author_id
+	GROUP BY a.id
+	ORDER BY num DESC
+	LIMIT 1
+
+
