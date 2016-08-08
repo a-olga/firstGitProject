@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Training</title>
+	<title>Training </title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<meta charset = "utf-8">
 	<style>
@@ -12,21 +12,25 @@
  			padding: 5px;
 		}
 	</style>
-
 	<script>
 		$(document).ready(function(){
 			var addedText = "";
-    		$("#button").click(function(){
-    			addedText = addedText + " " + $("#addedText").val();
-    		    $("#div").text(addedText).show();
-    		});
+    			$("#button").click(function(){
+    			if($("#addedText").val() != "") {
+    				addedText = addedText + " " + $("#addedText").val();
+    		    		$("#div").text(addedText).show();
+    			} 
+    			else {
+    				alert("Please, insert some text!");
+    			}
+    			});
 		});
 	</script>
 </head>
 <body>
 	<form>
 		<input type = "text" id = "addedText">
-		<button id = "button" type = "button">Add text</button>
+		<button id = "button" type = "button"> Add text </button>
 		<input id = "reset" type = "reset" value = "Clear form">
 	</form>
 	<div id = "div"></div>
